@@ -2,7 +2,7 @@
 	Custom checkbox and radio button - Jun 18, 2013
 	(c) 2013 @ElmahdiMahmoud 
 	license: https://www.opensource.org/licenses/mit-license.php
-*/   
+*/
 $('input[name="radio-btn"]').wrap('<div class="radio-btn"><i></i></div>');
 $(".radio-btn").on('click', function () {
     var _this = $(this),
