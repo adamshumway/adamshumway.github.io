@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CIT 261</title>
+    <!-- example from w3schools: https://www.w3schools.com/js/js_objects.asp
+                                https://www.w3schools.com/js/js_object_definition.asp
+                                https://www.w3schools.com/js/js_object_prototypes.asp -->
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <h1>Javascript Car Objects</h1>
+    <p id="demo"></p>
+    <br>
+    <p id="ride"></p>
+    <br>
+    <p id="proto"></p>
+
+    <script>
+        //demo
+        var car = {
+            type: "Fiat",
+            model: "500",
+            color: "white"
+        };
+        document.getElementById("demo").innerHTML = car.type;
+
+        //ride
+        var myType = "Toyota";
+        var myModel = "Camery";
+        var myColor = "Jet 'Friggin' Black";
+
+        var sweetRide = new Object();
+        sweetRide.type = myType;
+        sweetRide.model = myModel;
+        sweetRide.color = myColor;
+
+        function getRide() {
+            return "Here is my ride: " + sweetRide.type + " " + sweetRide.model + " in " + sweetRide.color;
+        }
+        document.getElementById("ride").innerHTML = getRide();
+
+        /********* Inheritence *********/
+        //create constructor
+        function SweetRide(type, model, color) {
+            this.type = type;
+            this.model = model;
+            this.color = color;
+        }
+
+        var mySweetRide = new SweetRide("Hummer", "H2", "Gunmetal");
+        function getSweetRide(theRide) {
+            var type = theRide.type;
+            var model = theRide.model;
+            var color = theRide.color;
+
+            return "My Sweet Ride is: " + type + "-" + model + " in " + color;
+        }
+        document.getElementById("proto").innerHTML = getSweetRide(mySweetRide);
+
+
+    </script>
+</body>
+
+</html>

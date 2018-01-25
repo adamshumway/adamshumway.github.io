@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CIT 261</title>
+    <!-- example from w3schools: https://www.w3schools.com/js/js_functions.asp -->
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <h1>Javascript Function</h1>
+    <p>This is a simple function that multiplies two numbers together</p>
+    <p id="function"></p>
+
+    <script>
+        function myFunction(p1, p2) {
+            return p1 * p2; // The function returns the product of p1 and p2
+        }
+        document.getElementById("function").innerHTML = myFunction(4, 3);
+    </script>
+</body>
+
+</html>
