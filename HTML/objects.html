@@ -14,19 +14,19 @@
     <a href="../index.html">Home</a>
     <h1>Javascript Car Objects</h1>
     <p id="demo"></p>
-    <br>
+    <hr>
     <p id="ride"></p>
-    <br>
+    <hr>
     <p id="proto"></p>
 
     <script>
         //demo
-        var carrot = {
+        var ride = {
             type: "Fiat",
             model: "500",
             color: "white"
         };
-        document.getElementById("demo").innerHTML = carrot.type;
+        document.getElementById("demo").innerHTML = ride.type;
 
         //ride
         var myType = "Toyota";
@@ -52,6 +52,7 @@
         }
 
         var mySweetRide = new SweetRide("Hummer", "H2", "Gunmetal");
+
         function getSweetRide(theRide) {
             var type = theRide.type;
             var model = theRide.model;
@@ -60,8 +61,6 @@
             return "My Sweet Ride is: " + type + "-" + model + " in " + color;
         }
         document.getElementById("proto").innerHTML = getSweetRide(mySweetRide);
-
-
     </script>
 </body>
 
