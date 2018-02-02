@@ -1,0 +1,40 @@
+#function {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+#carColor {
+    text-indent: 10px;
+    font-style: italic;
+}
+
+#forLoop, #forInLoop {
+    font-weight: bold;
+}
+
+pre {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+code {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #d8d7d6;
+}
+
+code {
+    display: block;
+    padding: 0.5em 1em;
+    border: 1px solid #bebab0;
+}

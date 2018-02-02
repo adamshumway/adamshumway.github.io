@@ -4,20 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <title>CIT 261</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/function.css">
+    <script type="text/javascript" src="../JS/function.js"></script>
     <!-- example from w3schools: https://www.w3schools.com/js/js_functions.asp -->
 </head>
 
 <body>
     <a href="../index.html">Home</a>
-    <h1>Javascript Function</h1>
-    <p>This is a simple function that multiplies two numbers together</p>
+    <h1>Javascript Function(s), Arrays, and Loops</h1>
+    <p><strong>Simple Function:</strong></p>
+    <p>This is a simple function that multiplies two numbers together.
+        <pre>
+            <code>
+                function myFunction(p1, p2) {
+                    return p1 * p2; // The function returns the product of p1 and p2
+                }
+                document.getElementById("function").innerHTML = myFunction(4, 6);
+            </code>
+        </pre>
+        This function has two parameters, p1 and p2.  The parameters accept input for the function and then use that input
+        to do work inside the function.  In our case, we're just multiplying the paramters together. As you can see, we are 
+        calling the function as part of the document innerHTML call and passing the numbers 4 and 6.  You can see the output
+        of that function below.
+    </p>
     <p id="function"></p>
+    <hr> <!-- array -->
+    <p id="array"></p>
+    <p><strong>Array:</strong></p>
+    <p>In the underlying code, we're building an array object full of car colors.  We'll use this array later in our loop exercise.</p>
+    <p id="carColor">var carColor = ["blue", "black", "gunmetal", "jet black", "mello yellow", "metalic green", "silver", "white", "grey", "racing red"]</p>
+    <P></P>
+    <hr> <!-- for loop -->
+    <p><strong>For Loop example:</strong></p>
+    <pre>
+        <code>
+            <strong>for (i = 0; i < 5; i++)</strong> {
+                text += "The number is " + i + "&ltbr&gt";
+            }
+        </code>
+    </pre>
+    <P>In this loop, we iterate from 0 to 10 and output the list of items in the Array, Car Colors.</P>
+    <p id="forLoop"></p>
+    <button onclick="runForLoop()">Run For Loop</button>
+    <hr> <!-- for IN loop -->
+    <p><strong>Example of For In Loop:</strong></p>
+    <pre>
+        <code>
+            var person = {fname:"John", lname:"Doe", age:25}; 
 
-    <script>
-        function myFunction(p1, p2) {
-            return p1 * p2; // The function returns the product of p1 and p2
-        }
+                var text = "";
+                var x;
+                <strong>for (x in person)</strong> {
+                    text += person[x];
+            }
+        </code>
+    </pre>
+    <P>As you can see, the "For In Loop" has the same basic loop idea, you just don't have to specify the loop iteration.
+        This is mostly because a "For In Loop" will iterate through an associative array, otherwise known as an array object.  
+        An Object array will have key value pairs as seen in the above "person" example. We'll run the similar data as before,
+        but as a key value pair object array instead.<br><br>
+        Here is the array:
+    </P>
+    <p id="carColor">
+        var carColor = {camery:"blue", jetta:"black", hummer:"gunmetal", camero:"jet black", firebird:"mello yellow", fiat:"metalic green", silverado:"silver", c200:"white", m5:"grey", supra:"racing red"};
+    </P>
+    <p id="forInLoop"></p>
+    <button onclick="runInLoop()">Run For <strong>IN</strong> Loop</button>
+    <hr> <!-- while loop -->
+    <p><strong>While Loop:</strong></p>
+    <p>The while loop incorporates an important element in javascript, the condition.  A condition is an evaluation that more or 
+        less evaluatest to true or false.  For example: 
+        <pre>
+            <code>
+                var i = 5;
+                while (i > 3)
+                {
+                    i--;
+                }
+            </code>
+        </pre>
+        In this example, we set the variable "i" to the number 5.  in the wile loop, as long as i (5) is greater than 3,
+        the code inside the braces {} will execute.  In this case, we are decrementing the variable with each iteration.
+        Once i = 3, the <strong><i>condition</i></strong> of the while loop will be met and we will exit the loop.  To demonstrate
+        this, when the button is clicked, a while loop will execute and a separate counter will count the iterations of the loop.
+        Using our example, we'll set a variable to 5 and iterate until 5 is no longer greater than 3.  It should be two iterations.
+    </p>
+    <p id="while"></p>
+    <button onclick="runWhileLoop()">Run While Loop</button>
+    <hr>
+   
+   
+   <script>
         document.getElementById("function").innerHTML = myFunction(4, 6);
+        /* the other functions are in the function.js file in the JS folder */
     </script>
 </body>
 
