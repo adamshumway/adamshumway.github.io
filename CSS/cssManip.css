@@ -1,0 +1,16 @@
+/* default paragraph style */
+.subHeading {
+    font-weight: bold;
+}
+
+/* used for example 2 */
+#ex2 {
+    width: 20em;
+    height: 20em;
+    border: 2px inset gray;
+    margin-bottom: 1em;
+  }
+  
+  button {
+    padding: .5em 2em;
+  }

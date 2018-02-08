@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>CIT 261</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/cssManip.css">
+    <link rel="stylesheet" title="cssManip" type="text/css" href="../CSS/cssManip.css">
+    <link rel="stylesheet" title="codeBlock" type="text/css" href="../CSS/codeBlock.css">
     <script type="text/javascript" src="../JS/cssManip.js"></script>
     <!-- example from w3schools: https://www.w3schools.com/js/js_htmldom_css.asp -->
+    <!-- DOM Style Object from w3schools: https://www.w3schools.com/jsref/dom_obj_style.asp -->
     <!-- example from w3.org: https://www.w3.org/wiki/Dynamic_style_-_manipulating_CSS_with_JavaScript -->
     <!-- example from webplatform.github.io: https://webplatform.github.io/docs/tutorials/manipulating_css_with_javascript/ -->
     <!-- example from kirupa: https://www.kirupa.com/html5/setting_css_styles_using_javascript.htm -->
@@ -16,6 +18,48 @@
 <body>
     <a href="../index.html">Home</a>
     <h2>CSS Manipulation with Javascript</h2>
+    <hr>
+    <p class="subHeading">Example of simple style change:</p>
+    <p id="ex1">Click button to toggle style</p>
+    <button onclick="runEx1()">Toggle</button>
+    <hr>
+    <p class="subHeading">Example of more complex style change:</p>
+    <p>Click button to toggle style</p>
+    <div id="ex2"></div>
+    <button onclick="runEx2()" id="clickMe">Toggle</button>
+    <hr>
+    <p class="subHeading">Example of enabling and disabling an entire stylesheet</p>
+    <p id="exN"></p>
+    <p>Click button to toggle enabling and disabling of code block styling</p>
+    <button onclick="runEx3()">Toggle</button>
+    <pre>
+        <code>
+        function runExN () {
+            var stylesheet = "codeBlock";
+            var myStyle = getStyleSheet(stylesheet);
+        
+            if (toggle){
+                toggle = false;
+                
+                stylesheet.disabled = true;
+            }
+            else {
+                toggle = true;
+                        
+                stylesheet.disabled = false;
+            }
+        }
+        
+        function getStyleSheet(unique_title) {
+            for(var i=0; i < document.styleSheets.length; i++) {
+                var sheet = document.styleSheets[i];
+                if(sheet.title == unique_title) {
+                return sheet;
+                }
+            }
+        }
+        </code>
+    </pre>
     <hr>
 </body>
 </html>
