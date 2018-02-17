@@ -1,0 +1,20 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0.5rem;
+    box-shadow: 5px 5px 5px lightsteelblue;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background: lightblue;
+}
+
+tr:nth-child(2n+3) {
+    background: rgb(177, 184, 194);
+}
