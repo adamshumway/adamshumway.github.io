@@ -42,7 +42,7 @@ function loadJSON (xhttp) {
 
     //loop through the json file and display posters
     for (var i = 0; i < jsonFile.length; i++) {
-        console.log("poster: " + jsonFile[i].poster);
+        //console.log("poster: " + jsonFile[i].poster);
         var imgSRC = jsonFile[i].poster;
         img = document.createElement('img');
         img.src = imgSRC;
