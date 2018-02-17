@@ -29,3 +29,27 @@ function loadImg(url) {
     document.getElementById("img").appendChild(img);
     
 }
+
+/* need to add function to accept load json object and then pass a single image to get loaded by image function */
+function loadJSON (xhttp) {
+    var jsonFile = JSON.parse(xhttp.responseText);
+
+    // console.log(jsonFile[0].poster);
+
+    // for (var i = 0; i < jsonFile.length; i++) {
+    //     console.log("poster: " + jsonFile[i].poster);
+    // }
+
+    //loop through the json file and display posters
+    for (var i = 0; i < jsonFile.length; i++) {
+        console.log("poster: " + jsonFile[i].poster);
+        var imgSRC = jsonFile[i].poster;
+        img = document.createElement('img');
+        img.src = imgSRC;
+        img.setAttribute("width", "400");
+        img.setAttribute("height", "600");
+        document.getElementById("json").appendChild(img);
+    }
+
+
+}
