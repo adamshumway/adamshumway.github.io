@@ -8,7 +8,7 @@ function loadFile(url, cFunction) {
             cFunction(this);
         }
     };
-    xhttp.open("GET", url, true);
+    xhttp.open("POST", url, true);
     xhttp.send();
 }
 
