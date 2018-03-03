@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CIT 261</title>
+    <link rel="stylesheet" title="json" type="text/css" href="../CSS/ajax.css">
+    <script type="text/javascript" src="../JS/ajax.js"></script>
+    <!-- example from w3schools: https://www.w3schools.com/js/js_json_intro.asp -->
+    
+</head>
+<body>
+    <a href="../index.html">Home</a>
+    <h2>Ajax - Pokemon</h2>
+    <hr>
+    <p>The first button makes a static Pokemon api call to (https://pokeapi.co/api/v2/) and pulls back data for the Pokemon Pikachu.
+        The second button enables a search of a Pokemon of your choosing.  Some options are:
+        <ul>
+            <li>Pikachu</li>
+            <li>Celebi</li>
+            <li>Eevee</li>
+            <li>Charizard</li>
+            <li>Snorlax</li>
+            <li>Charmander</li>
+            <li>Mewtwo</li>
+            <li>etc...</li> 
+        </ul> </p>
+    <button type="button" onclick="loadFile('https://pokeapi.co/api/v2/pokemon/pikachu/', loadPoke)">
+        Click To Load Pikachu</button>
+        <br>
+        <br>
+    <form action=''>
+        <input id="name" type="text">
+        <button type="button" onclick="getPokemon()">
+            Click To SEARCH pokemon</button>
+    </form> 
+    <hr>
+    <div>
+        <pre>
+            <p id="poke"></p>
+        </pre>
+    </div>
+
+
+
+</body>
+</html> 
