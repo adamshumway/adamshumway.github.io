@@ -47,9 +47,11 @@ function submit() {
     localStorage.song = song;
 
     document.getElementById("values").innerHTML = "";
+    document.getElementById("name").value = "";
+    document.getElementById("food").value = "";
+    document.getElementById("song").value = "";
 
     var form = document.getElementById("form");
-
     form.innerHTML = "Form Saved to Local Storage";
     setTimeout(hide, 5000, form);
 }
@@ -89,7 +91,6 @@ function reset() {
     
     var form = document.getElementById("form");
     form.innerHTML = "Form data cleared from Local Storage";
-
     setTimeout(hide, 5000, form);
 }
 
