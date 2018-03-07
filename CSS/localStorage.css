@@ -1,0 +1,13 @@
+form {
+    width: 325px
+}
+
+label {
+    float: left;
+    width:100px ;
+}
+
+input[type=text] {
+    float: left;
+    width: 200px
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CIT 261</title>
+    <link rel="stylesheet" title="json" type="text/css" href="../CSS/localStorage.css">
+    <script type="text/javascript" src="../JS/localStorage.js"></script>
+    <!-- example from w3schools: https://www.w3schools.com/html/html5_webstorage.asp -->
+    
+</head>
+<body>
+    <a href="../index.html">Home</a>
+    <h2>Local Storage</h2>
+    <hr>
+    <p>Click the button to see the counter increase.</p>
+    <p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+    <button type="button" onclick="clickCounter()">
+        Click To Count</button>
+    <button type="button" onclick="countToggle()">
+        Click To Toggle</button>
+    <button type="button" onclick="removeClick()">
+        Click To Remove Count</button>
+    <br>
+    <br>
+    <div id="result"></div>
+    <hr>
+    <p>Enter your name, favorite food and song.  Then "submit" to save the entry to local storage.</p>
+    <p>Use the "show" button to display the stored results.  Use "reset" to clear out the localStorage values and begin again.</p>
+    <div>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name"/><br>
+            <label for="food">Food</label>
+            <input type="text" id="food"/><br>
+            <label for="song">Song</label> 
+            <input type="text" id="song"/>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        <button type="button" id="submit" onclick="submit()">Submit</button>
+        <button type="button" id="show" onclick="show()">Show</button>
+        <button type="button" id="reset" onclick="reset()">Reset</button>
+    </div>
+    <div>
+        <p id="form"></p>
+        <p id="values"></p>
+    </div>
+
+</body>
+</html> 
