@@ -1,0 +1,36 @@
+#ex1 {
+    width: 200px;
+    height: 200px;
+    background: grey;
+    position: relative;
+    margin: 10px;
+}
+
+#ex1-an1 {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 10px;
+
+    -webkit-animation-name: an1; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: an1;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes an1 {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}
+
+/* Standard syntax */
+@keyframes an1 {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}

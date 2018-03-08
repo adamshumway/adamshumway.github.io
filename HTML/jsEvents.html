@@ -13,5 +13,19 @@
     <a href="../index.html">Home</a>
     <h2>JavaScript Events</h2>
     <hr>
+    <p>Using the box below, perform different events that will change the color of the box.</p>
+    <ul>
+        <li>Click the button to cycle all the colors</li>
+        <li>Click the box area to change the color to blue</li>
+        <li>Mouse over the box to change the color to yellow</li>
+        <li>Strike any key on the keyboard to change the color red (must click inside box first)</li>
+        <li>Once the cursor is in the box, moving it out of the box will change the color green</li>
+        <li>View the counter below the box to see how many changes you've performed</li>
+    </ul>
+    <button type="button" id="btn" onClick="toggle()">Click Me!</button>
+    <div id="ex1" tabindex="1" onClick="goBlue()" onmouseover="goYellow()" onmouseleave="goGreen()" onkeydown="goRed()"></div>
+    <div>
+        <p id="counter">Changes captured: <strong>0</strong></p>
+    </div>
 </body>
 </html>
