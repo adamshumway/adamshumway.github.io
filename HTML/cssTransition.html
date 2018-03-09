@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CIT 261</title>
+    <link rel="stylesheet" title="cssManip" type="text/css" href="../CSS/cssTransition.css">
+        <script type="text/javascript" src="../JS/cssTransition.js"></script>
+    <!-- example from w3schools: https://www.w3schools.com/howto/howto_js_animate.asp -->
+    
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <h2>CSS Transition and Animations with JavaScript</h2>
+    <hr>
+    <h3>Click to make the box move right and left</h3>
+    <div id="box"></div> 
+    <button id="toggleButton" onClick="moveBlue()" value='play'>Play</button>
+    <button id="rmvButton" onClick="rtnBlue()" value='return'>Return</button>
+    <hr>
+    <h3>The transition-timing-function Property</h3>
+
+    <p>Click the element to see the , to see the different speed curves.  Click the element a second time to have it return to the starting position</p>
+
+    <div id="main" onClick="timeClick('main')">
+        <div id="div1" onClick="timeClick('div1')">linear</div><br>
+        <div id="div2" onClick="timeClick('div2')">ease</div><br>
+        <div id="div3" onClick="timeClick('div3')">ease-in</div><br>
+        <div id="div4" onClick="timeClick('div4')">ease-out</div><br>
+        <div id="div5" onClick="timeClick('div5')">ease-in-out</div><br>
+    </div>
+    <hr>
+    <h3>Transition + Time delay + Transform</h3>
+    <p>Click the element to have have it expand, grow, and rotate (for good measure), after a 1s delay</p>
+    <div id="t3" onClick="t3('t3')"></div>
+    
+</body>
+</html>
