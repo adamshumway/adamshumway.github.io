@@ -6,12 +6,61 @@
     <title>CIT 261</title>
     <link rel="stylesheet" title="json" type="text/css" href="../CSS/tags.css">
     <script type="text/javascript" src="../JS/tags.js"></script>
-    <!-- example from w3schools: https://www.w3schools.com/js/js_htmldom.asp -->
+    <!-- example from w3schools: https://www.w3schools.com/html/html5_audio.asp -->
     
 </head>
-<body>
+<body onload="onLoad()">
     <a href="../index.html">Home</a>
     <h2>HTML Tags - Audio - Video - Canvas</h2>
     <hr>
+    <h3>Audio Tag</h3>
+    <p>Here is the default audo tag. As you can see, the default tag needs "controls" attribute to be meaningful.  Without it, the user cannot interact with audio on a web page. <pre><code>"&ltaudio controls&gt&lt/audio&gt"</code></pre></p>
+    <p>Here is some audio from the first chapter of the audiobook, Maze Runner by James Dashner.  Notice that the default controls allow access to play/pause, volume control, progress and progress scan, and track length.</p>
+    <audio id="audio" controls>
+        <source src="../FILES/MazeRunner-Chapter01.mp3" type="audio/mpeg">
+    </audio>
+    <br>
+    <br>
+    <button id="autoplay" type="button" value="Autoplay On" onClick="autoToggle('autoplay')">Set Autoplay</button>
+    <button id="clear" onClick="reset()">Reset</button>
+    <p>Setting the "autoplay" to "On" or "Off" will persist regardless of browser session.  If "autoplay" is set to "On", when you leave the page/session and come back, the audio file will autoplay. </p>
+    <hr>
+    <h3>Video Tag</h3>
+    <div style="text-align: center">
+        <button onclick="playPause('video')">Play/Pause</button> 
+        <button onclick="makeBig('video')">Big</button>
+        <button onclick="makeSmall('video')">Small</button>
+        <button onclick="makeNormal('video')">Normal</button>
+        <br><br>
+        <video id="video" controls height="240px" width="320px">
+            <source src="../FILES/4.4-Instrument-Fibonacci.mp4" type="video/mp4">
+        </video>
+        <br><br>
+        <button id="control" onclick="controls('control')">Controls Off</button>
+    </div>
+    <p>The video tag allos for video to be embedded or referenced on a web page. You can control the video much like the audio, using default controls.  Using DOM (Document Object Model), you can make your own conrols, like the buttons around the video window.  Using the "Play/Pause" button, you can play or pause the video playback.  Using the "Big", "Small", or "Normal" buttons, you can resize the video.  Using the "Controls" toggle button, you can remove or add default controls to the video window.  Note, using the "Controls" button will cause the video to reload in order to reflect the change.</p>
+    <hr>
+    <h3>Canvas Tag</h3>
+    <div class="container">
+        <div class="text">
+            <p>The canvas tag can do many things, but it's basically designed to handle:
+                <ul>
+                    <li>Drawing text</li>
+                    <li>Graphics</li>
+                    <li>Animations</li>
+                    <li>Interactions (like mouse clicks, button clicks, key clicks, etc.)</li>
+                    <li>HTML based games</li>
+                </ul>
+            </p>
+            <p>In our case, we'll use canvas to draw a clock.</p>
+        </div>
+        <div class="clock">
+            <canvas id="clock"></canvas>
+        </div>
+    </div>
+
+
+
+
 </body>
 </html>

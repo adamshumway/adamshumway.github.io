@@ -1,0 +1,19 @@
+body {
+    margin-bottom: 5%;
+}
+
+.text {
+    float: left;
+}
+
+
+canvas {
+    /*height: 1000px;*/
+    width: 800px;
+} 
+
+.clock {
+    margin-left: 10%;
+    /* height: 1000px; */
+    /* width: 800px; */
+}
