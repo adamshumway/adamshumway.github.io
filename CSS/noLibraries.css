@@ -1,4 +1,4 @@
-/* @-webkit-keyframes rotate {
+@-webkit-keyframes rotate {
     0% {
         -webkit-transform:translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
         background-color:red;
@@ -44,8 +44,8 @@
 #button {
   width:130px;
   background:teal;
-} */
-
+}
+/* still need some work on this one, but I think I'm getting it alittle better.  need to transform: translate(x,y) */
 /* dots */
 .dot {
     height: 25px;
@@ -55,22 +55,181 @@
     display: inline-block;
 }
 
-/* canvas */
-#canvas {
-    width: 400;
-    height: 400;
+#big {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    background-color: red;
+    position: absolute;
+    left:200px;
+    top: 500px;
+}
+
+#poop {
     border: 1px solid black;
-    transition-timing-function: linear;
+    height: 300px;
+    width: 300px;
+}
+
+.spot {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: blue;
+    position: absolute;
+    left:230px;
+    top: 530px;
+
+    -moz-transition: transform 3s;
+    transition: transform 3s;
+}
+
+#poop:hover #dot4 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: diagonal 3s; */
+    transform: translate(60px,60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot5 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: revdiagonal 3s; */
+    transform: translate(-60px,-60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot6 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: upRightDiagonal 3s; */
+    transform: translate(60px,-60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot7 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: downLeftDiagonal 3s; */
+    transform: translate(-60px,60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot8 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: moveRight 3s; */
+    transform: translate(60px,0);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot9 {
+    /* -moz-transition: width 3s, height 3s, transform 3s;
+    transition: width 3s, height 3s, transform 3s; */
+    /* -moz-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out; */
+    transform: translate(-60px,0);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s; 
+    /* animation: moveLeft 3s, 3s;*/
+}
+
+#poop:hover #dot10 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: moveUp 3s; */
+    transform: translate(0,-60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+#poop:hover #dot11 {
+    /* transition: width 3s, height 3s, transform 3s;
+    animation-timing-function: linear;
+    animation: moveDown 3s; */
+    transform: translate(0,60px);
+    transition-timing-function: ease-in-out;
+    transition: transform 3s;
+}
+
+/* canvas */
+.canvas {
+    /* width: 400;
+    height: 400; */
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid black;
+    /* transition-timing-function: linear; */
     
 }
 
-#canvas:hover {
-    transition: width 2s, height 2s, transform 2s;
-    animation: diagonal 3s;
+div {
+    border: 1px solid black;
 }
 
+/* :hover {
+    transition: width 3s, height 3s, transform 3s;
+    animation: diagonal 3s;
+}
+:hover {
+    transition: width 3s, height 3s, transform 3s;
+    animation: revdiagonal 3s;
+} */
+
 @keyframes diagonal {
-    0%       { transform: translatex(-30px) translatey(-30px) }
-    50%      { transform: translatex(20px) translatey(20px); }
-    100%     { transform: translatex(-30px) translatey(-30px) }
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(30px) translatey(30px); }
+    100%     { transform: translatex(60px) translatey(60px) }
+}
+@keyframes revdiagonal {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(-30px) translatey(-30px); }
+    100%     { transform: translatex(-60px) translatey(-60px) }
+}
+@keyframes upRightDiagonal {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(30px) translatey(-30px); }
+    100%     { transform: translatex(60px) translatey(-60px) }
+}
+@keyframes downLeftDiagonal {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(-30px) translatey(30px); }
+    100%     { transform: translatex(-60px) translatey(60px) }
+}
+@keyframes upRightDiagonal {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(30px) translatey(-30px); }
+    100%     { transform: translatex(60px) translatey(-60px) }
+}
+@keyframes moveRight {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(30px) translatey(0px) }
+    100%     { transform: translatex(60px) translatey(0px) }
+}
+/* @keyframes moveLeft {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(-60px) translatey(0px) }
+    100%     { transform: translatex(0px) translatey(0px) }
+} */
+@keyframes moveLeft {
+    to      { transform: translatex(-60px) translatey(0px) }
+}
+@keyframes outLeft {
+    to       { transform: translatex(0px) translatey(0px) }
+}
+@keyframes moveUp {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(0px) translatey(30px); }
+    100%     { transform: translatex(0px) translatey(60px) }
+}
+@keyframes moveDown {
+    0%       { transform: translatex(0px) translatey(0px) }
+    50%      { transform: translatex(0px) translatey(-30px); }
+    100%     { transform: translatex(0px) translatey(-60px) }
 }

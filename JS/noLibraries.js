@@ -153,38 +153,68 @@
 //   return curr;
 // }
 
-var canvas,
- ctx;
-window.onload = function() {
-    canvas = document.getElementById("canvas");
-    console.log(canvas);
+// var canvas,
+//     ctx, 
+//     main,
+//     num = 1;
+// window.onload = function() {
+//     //main = document.getElementById("splat");
+//     // canvas = document.getElementById("canvas");
+//     // console.log(canvas);
 
-    ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(148, 75, 40, 0, 2* Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "red";
-    ctx.fill();
+//     canvas = createCanvas();
+//     canvas.id = "dot";
+//     canvas.className = "canvas";
+//     ctx = canvas.getContext("2d");
+//     ctx.beginPath();
+//     ctx.arc(148, 75, 40, 0, 2* Math.PI);
+//     ctx.globalCompositeOperation="destination-over";
+//     ctx.closePath();
+//     ctx.stroke();
+//     ctx.fillStyle = "red";
+//     ctx.fill();
+    
+//     document.body.appendChild(canvas);
+//     //createCanvas(canvas);
+    
+//     var dot2 = createCanvas();
+//     createDot(dot2);
+//     //main.appendChild(canvas);
+//     document.body.appendChild(dot2);
 
-    createCanvas(canvas);
-}
-/* I need to work on this more.  I'm trying to create a canvas on a canvas, but it isn't working at the moment */
-function createCanvas(main) {
-    var newCanv = document.createElement("canvas");
-    newCanv.id = "dot1";
-    main.appendChild(newCanv);    
-    createDot(newCanv);
+//     var dot3 = createCanvas();
+//     createDot(dot3);
+//     //main.appendChild(canvas);
+//     document.body.appendChild(dot3);
 
-}
+// }
+// /* I need to work on this more.  I'm trying to create a canvas on a canvas, but it isn't working at the moment */
+// function createCanvas() {
+//     var newCanv = document.createElement("canvas");
+//     var newDot;
+//     newCanv.id = "dot" + num;
+//     newCanv.style.zIndex = num;
+//     newCanv.className = "canvas";
+//     //main.appendChild(newCanv);    
+//     if (num !== 1) {
+//         newDot = createDot(newCanv);
+//     }
 
-function createDot(canvas) {
-    var ctx = canvas.getContext("2d");
+//     num++;
+//     console.log("num: " + num);
+//     return newCanv;
+// }
 
-    ctx.beginPath();
-    ctx.arc(148, 75, 10, 0, 2*Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "blue";
-    ctx.fill();
+// function createDot(canvas) {
+//     var ctx = canvas.getContext("2d");
 
-    console.log("I should have created a dot");
-}
+//     ctx.beginPath();
+//     ctx.arc(148, 75, 10, 0, 2*Math.PI);
+//     ctx.globalCompositeOperation="source-over";
+//     ctx.closePath();
+//     ctx.stroke();
+//     ctx.fillStyle = "blue";
+//     ctx.fill();
+
+//     console.log("I should have created a dot");
+// }
