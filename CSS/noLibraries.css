@@ -1,3 +1,4 @@
+/* circle animation keyframs */
 @-webkit-keyframes rotate {
     0% {
         -webkit-transform:translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
@@ -28,32 +29,37 @@
         -webkit-transform:translate(100px, 100px) rotate(360deg) translate(-100px, -100px) rotate(-360deg);
     }
 }
+/* circle object */
 #circle {
     height: 50px;
     width: 50px;
     border-radius:25px;
     background-color: teal;
+    
     -webkit-animation-duration: 4s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-name:"rotate";
     -webkit-animation-iteration-count: infinite;
+    
     -moz-animation-duration: 4s;
     -moz-animation-timing-function: linear;
     -moz-animation-name:"rotate";
     -moz-animation-iteration-count: infinite;
+    
     animation-duration: 4s;
     animation-timing-function: linear;
     animation-name:"rotate";
     animation-iteration-count: infinite;
-    position:absolute;
-    left:50%;
-    top:30%; 
+    /*position:absolute;*/
+    margin-left:200px;
+    margin-top: 100px;
 }
-#button {
+/* #button {
   width:130px;
   background:teal;
-}
-/* still need some work on this one, but I think I'm getting it alittle better.  need to transform: translate(x,y) */
+} */
+
+/* moving dots transform/transitions */
 /* dots */
 .dot {
     height: 25px;
@@ -78,7 +84,7 @@
     transition-timing-function: ease-in-out;
 }
 
-#poop:hover #big {
+#box:hover #big {
     opacity: 0;
     -webkit-tranision: opacity 2s;
     -moz-transition: opacity 2s;
@@ -86,11 +92,12 @@
     transition-timing-function: ease-in-out;
 }
 
-#poop {
+#box {
     border: 1px solid black;
     height: 400px;
     width: 600px;
     margin-left: 100px;
+    text-align: center;
     position: relative;
     border-collapse: collapse;
     border-spacing: 0.5rem;
@@ -111,89 +118,143 @@
     transition: transform 3s;
 }
 
-#poop #dot4 {transition-delay: 0.4s;}
-#poop #dot6 {transition-delay: 0.2s;}
-#poop #dot7 {transition-delay: 0.6s;}
-#poop #dot8 {transition-delay: 0.3s;}
-#poop #dot9 {transition-delay: 0.7s;}
-#poop #dot10 {transition-delay: 0.1s;}
-#poop #dot11 {transition-delay: 0.5s;}
+/* this is for the return trip */
+#box #dot4 {transition-delay: 0.4s;}
+#box #dot6 {transition-delay: 0.2s;}
+#box #dot7 {transition-delay: 0.6s;}
+#box #dot8 {transition-delay: 0.3s;}
+#box #dot9 {transition-delay: 0.7s;}
+#box #dot10 {transition-delay: 0.1s;}
+#box #dot11 {transition-delay: 0.5s;}
 
-#poop:hover #dot4 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: diagonal 3s; */
+/* this section is for the hover event */
+#box:hover #dot4 {
+    -moz-transform: translate(293px,192px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.4s;
+
+    -webkit-transform: translate(293px,192px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.4s;
+
     transform: translate(293px,192px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
     transition-delay: 0.4s;
 }
 
-#poop:hover #dot5 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: revdiagonal 3s; */
+#box:hover #dot5 {
+    -moz-transform: translate(-285px,-184px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+
+    -webkit-transform: translate(-285px,-184px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+
     transform: translate(-285px,-184px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
 }
 
-#poop:hover #dot6 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: upRightDiagonal 3s; */
+#box:hover #dot6 {
+    -moz-transform: translate(294px,-185px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.2s;
+
+    -webkit-transform: translate(294px,-185px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.2s;
+
     transform: translate(294px,-185px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
     transition-delay: 0.2s;
 }
 
-#poop:hover #dot7 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: downLeftDiagonal 3s; */
+#box:hover #dot7 {
+    -moz-transform: translate(-285px,195px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.6s;
+
+    -webkit-transform: translate(-285px,195px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.6s;
+
     transform: translate(-285px,195px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
     transition-delay: 0.6s;
 }
 
-#poop:hover #dot8 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: moveRight 3s; */
+#box:hover #dot8 {
+    -moz-transform: translate(293px,0);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.3s;
+
+    -webkit-transform: translate(293px,0);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.3s;
+
     transform: translate(293px,0);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
     transition-delay: 0.3s;
 }
 
-#poop:hover #dot9 {
-    /* -moz-transition: width 3s, height 3s, transform 3s;
-    transition: width 3s, height 3s, transform 3s; */
-    /* -moz-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out; */
+#box:hover #dot9 {
+    -moz-transform: translate(-284px,0);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.7s;
+
+    -webkit-transform: translate(-284px,0);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.7s;
+
     transform: translate(-284px,0);
     transition-timing-function: ease-in-out;
     transition: transform 3s; 
-    /* animation: moveLeft 3s, 3s;*/
     transition-delay: 0.7s;
 }
 
-#poop:hover #dot10 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: moveUp 3s; */
+#box:hover #dot10 {
+    -moz-transform: translate(0,-184px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.1s;
+
+    -webkit-transform: translate(0,-184px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.1s;
+
     transform: translate(0,-184px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
     transition-delay: 0.1s;
 }
 
-#poop:hover #dot11 {
-    /* transition: width 3s, height 3s, transform 3s;
-    animation-timing-function: linear;
-    animation: moveDown 3s; */
+#box:hover #dot11 {
+    -moz-transform: translate(0,194px);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition: transform 3s;
+    -moz-transition-delay: 0.5s;
+
+    -webkit-transform: translate(0,194px);
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition: transform 3s;
+    -webkit-transition-delay: 0.5s;
+
     transform: translate(0,194px);
     transition-timing-function: ease-in-out;
     transition: transform 3s;
@@ -201,22 +262,22 @@
 }
 
 /* canvas */
-.canvas {
+/* .canvas {
     /* width: 400;
     height: 400; */
-    position: absolute;
+    /* position: absolute;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid black; */
     /* transition-timing-function: linear; */
     
-}
+/*}
 
 div {
     border: 1px solid black;
     background-color: transparent;
-}
+} */
 
-@keyframes diagonal {
+/* @keyframes diagonal {
     0%       { transform: translatex(0px) translatey(0px) }
     50%      { transform: translatex(30px) translatey(30px); }
     100%     { transform: translatex(60px) translatey(60px) }
@@ -261,4 +322,4 @@ div {
     0%       { transform: translatex(0px) translatey(0px) }
     50%      { transform: translatex(0px) translatey(-30px); }
     100%     { transform: translatex(0px) translatey(-60px) }
-}
+} */
