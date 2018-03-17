@@ -29,31 +29,49 @@
 @-webkit-keyframes rotate {
     0% {
         -webkit-transform:translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
+        -moz-transform:translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
+        transform: translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
         background-color:red;
     }  
         13% {
         -webkit-transform:translate(100px, 100px) rotate(45deg) translate(-100px, -100px) rotate(-45deg);
+        -moz-transform:translate(100px, 100px) rotate(45deg) translate(-100px, -100px) rotate(-45deg);
+        transform:translate(100px, 100px) rotate(45deg) translate(-100px, -100px) rotate(-45deg);
     }
         25% {
         -webkit-transform:translate(100px, 100px) rotate(90deg) translate(-100px, -100px) rotate(-90deg);
+        -moz-transform:translate(100px, 100px) rotate(90deg) translate(-100px, -100px) rotate(-90deg);
+        transform:translate(100px, 100px) rotate(90deg) translate(-100px, -100px) rotate(-90deg);
     }
         38% {
         -webkit-transform:translate(100px, 100px) rotate(135deg) translate(-100px, -100px) rotate(0deg);
+        -moz-transform:translate(100px, 100px) rotate(135deg) translate(-100px, -100px) rotate(0deg);
+        transform:translate(100px, 100px) rotate(135deg) translate(-100px, -100px) rotate(0deg);
     }
         50% {
         -webkit-transform:translate(100px, 100px) rotate(180deg) translate(-100px, -100px) rotate(-180deg);
+        -moz-transform:translate(100px, 100px) rotate(180deg) translate(-100px, -100px) rotate(-180deg);
+        transform:translate(100px, 100px) rotate(180deg) translate(-100px, -100px) rotate(-180deg);
     }
         63% {
         -webkit-transform:translate(100px, 100px) rotate(225deg) translate(-100px, -100px) rotate(225deg);
+        -moz-transform:translate(100px, 100px) rotate(225deg) translate(-100px, -100px) rotate(225deg);
+        transform:translate(100px, 100px) rotate(225deg) translate(-100px, -100px) rotate(225deg);
     }
         75% {
         -webkit-transform:translate(100px, 100px) rotate(270deg) translate(-100px, -100px) rotate(-270deg);
+        -moz-transform:translate(100px, 100px) rotate(270deg) translate(-100px, -100px) rotate(-270deg);
+        transform:translate(100px, 100px) rotate(270deg) translate(-100px, -100px) rotate(-270deg);
     }
         88% {
         -webkit-transform:translate(100px, 100px) rotate(315deg) translate(-100px, -100px) rotate(315deg);
+        -moz-transform:translate(100px, 100px) rotate(315deg) translate(-100px, -100px) rotate(315deg);
+        transform:translate(100px, 100px) rotate(315deg) translate(-100px, -100px) rotate(315deg);
     }
         100% {
         -webkit-transform:translate(100px, 100px) rotate(360deg) translate(-100px, -100px) rotate(-360deg);
+        -moz-transform:translate(100px, 100px) rotate(360deg) translate(-100px, -100px) rotate(-360deg);
+        transform:translate(100px, 100px) rotate(360deg) translate(-100px, -100px) rotate(-360deg);
     }
 }
 
@@ -250,3 +268,68 @@
     transition: transform 3s;
     transition-delay: 0.5s;
 }
+
+/* rotation */
+#rotation {
+    margin-top: 20%;
+}
+.rotate {
+    display: inline-block;
+    background-color: #0074d9;
+    height: 100px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    opacity: .7;
+    font-family: Verdana, sans-serif;
+    border: 3px solid rgba(0,0,0,.3); 
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .one { 
+    transform: rotateX(40deg);
+    animation: one 2s infinite;
+    animation-direction: alternate;
+  }
+  
+  .two {
+    transform: rotateY(40deg);
+    animation: two 2s infinite;
+    animation-direction: alternate;
+    background-color: #831a4a;
+  }
+  
+  .three {
+    transform: rotateZ(100deg);
+    animation: three 2s infinite;
+    animation-direction: alternate;
+    background-color: #439772;
+  }
+  
+  @keyframes one {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(60deg);
+    }
+  }
+  
+  @keyframes two {
+    0% {
+      transform: rotateY(0);
+    }
+    100% {
+      transform: rotateY(70deg);
+    }
+  }
+  
+  @keyframes three {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(100deg);
+    }
+  }
