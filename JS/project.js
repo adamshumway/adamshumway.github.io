@@ -57,7 +57,14 @@ function loadJSON (xhttp) {
         // document.getElementById("posters").appendChild(img);
     }
 //console.log(movieList);
-    localStorage.movies = JSON.stringify(movieList);
+    if(typeof(Storage) !== "undefined") {
+        localStorage.movies = JSON.stringify(movieList);
+    }
+    else {
+        localStorage.removeItem(movies);
+        localStorage.movies = JSON.stringify(movieList);
+    }
+
     //console.log(localStorage.movies);
 
 
@@ -81,14 +88,24 @@ function calcVotes() {
 
 function showPoster() {
     var list = JSON.parse(localStorage.movies);
+    var img;
+    var span;
 
     for (i = 0; i < 10; i++) {
         var imgSRC = list[i].poster;
         img = document.createElement('img');
         img.src = imgSRC;
-        img.setAttribute("width", "400");
-        img.setAttribute("height", "600");
+        img.className = "myPoster";
+        img.setAttribute("width", "100%");
+        img.setAttribute("height", "100%");
         document.getElementById("posters").appendChild(img);
+        //console.log(document.getElementById("posters"));
+
+        span = document.createElement("span");
+        span.className = "badge demo border transparent hover-white";
+        span.setAttribute("onclick", "currentDiv("+i+")");
+        document.getElementsByClassName("selector-container")[0].appendChild(span);
+
     }
 }
 function buildChart(votes) {
@@ -121,16 +138,17 @@ function testRun() {
     var topRated = "https://api.themoviedb.org/3/movie/top_rated?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
     var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
 
-    loadFile(nowPlaying, loadJSON);
+    loadFile(getUpcoming, loadJSON);
 
     var votes = calcVotes();
     //console.log(votes);
 
     buildChart(votes);
-    //showPoster();
+    showPoster();
 
     slideIndex = 1;
     showDivs(slideIndex);
+    //slideShow(0);
 }
 
 function plusDivs(n) {
@@ -159,4 +177,27 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " white";
+  setTimeout(plusDivs, 5000, 1); // Change image every 3 seconds
+
+}
+
+function slideShow(n) {
+    var i;
+    myIndex = n;
+    console.log("myIndex: " + myIndex);
+    var x = document.getElementsByClassName("myPoster");
+    var dots = document.getElementsByClassName("demo");
+    console.log(x);
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" white", "");
+     }
+    myIndex++;
+    console.log("myIndex++ " + myIndex);
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    dots[myIndex-1].className += " white";
+    setTimeout(slideShow, 3000, myIndex); // Change image every 2 seconds
 }

@@ -9,9 +9,13 @@ body {
 /* poster section */
 .poster-container {
   position: relative;
-  height: 600px;
-  width: 400px;
+  height: 800px;
+  width: 600px;
   margin: auto;
+}
+
+.myPoster {
+  display: none;
 }
 
 .selector-container {
