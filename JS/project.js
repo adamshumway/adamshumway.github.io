@@ -33,7 +33,7 @@ function loadJSON (xhttp) {
     var movieBasePath = "http://image.tmdb.org/t/p/w500";
     var jsonFile = JSON.parse(xhttp.responseText);
     text = JSON.stringify(jsonFile, null, 2);
-
+    localStorage.removeItem("movies");
     var movieList = [];
     
     ////displays json file
@@ -49,21 +49,10 @@ function loadJSON (xhttp) {
         obj = {title: theTitle, votes: votes, poster: poster};
         movieList[i] = obj;
       
-        // var imgSRC = poster;
-        // img = document.createElement('img');
-        // img.src = imgSRC;
-        // img.setAttribute("width", "400");
-        // img.setAttribute("height", "600");
-        // document.getElementById("posters").appendChild(img);
     }
 //console.log(movieList);
-    if(typeof(Storage) !== "undefined") {
-        localStorage.movies = JSON.stringify(movieList);
-    }
-    else {
-        localStorage.removeItem(movies);
-        localStorage.movies = JSON.stringify(movieList);
-    }
+
+    localStorage.movies = JSON.stringify(movieList);
 
     //console.log(localStorage.movies);
 
@@ -95,29 +84,16 @@ function showPoster() {
     var container = document.getElementById("posters");
     var selector = document.getElementsByClassName("selector-container")[0];
 
-    // document.body.removeChild(container);
-
-    // container = document.createElement("div");
-    // container.id = "posters";
-    // container.className = "poster-container";
-
-    // document.body.childNodes[4].appendChild(container);
     container.removeChild(selector);
-    // console.log("poster: " + JSON.stringify(poster));
-    // console.log("poster object: " + poster);
-    // console.log("poster length: " + poster.length);
+
     
     for(i = 0; i < poster.length; i++) {
         if(typeof poster[i] !== "undefined") {
             poster[i].parentElement.removeChild(poster[i]);
-            console.log("deleting node: " + JSON.stringify(poster[i]));
+            //console.log("deleting node: " + JSON.stringify(poster[i]));
         }
-        else {
-            console.log("in else for removing poster");
-        }
-        // if(poster.hasChildNodes()) {
-        //     poster.removeChild(poster.childNodes[i]);
-        }
+
+    }
     
 
     
@@ -147,7 +123,7 @@ function showPoster() {
         img.setAttribute("width", "100%");
         img.setAttribute("height", "100%");
         document.getElementById("posters").appendChild(img);
-        console.log(document.getElementById("posters"));
+        //console.log(document.getElementById("posters"));
 
         span = document.createElement("span");
         span.className = "badge demo border transparent hover-white";
@@ -204,10 +180,10 @@ function runSearch(search) {
     var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
 
     console.log(search);
-    if(search === nowPlaying) {loadFile(nowPlaying, loadJSON)};
-    if(search === getPopular) {loadFile(getPopular, loadJSON)};
-    if(search === topRated) {loadFile(topRated, loadJSON)};
-    if(search === getUpcoming) {loadFile(getUpcoming, loadJSON)};
+    if(search === nowPlaying) {loadFile(nowPlaying, loadJSON);};
+    if(search === getPopular) {loadFile(getPopular, loadJSON);};
+    if(search === topRated) {loadFile(topRated, loadJSON);};
+    if(search === "getUpcoming") {loadFile(getUpcoming, loadJSON);}
 
     var votes = calcVotes();
     dropChart();
@@ -225,7 +201,7 @@ function testRun() {
     var topRated = "https://api.themoviedb.org/3/movie/top_rated?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
     var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
 
- loadFile(getUpcoming, loadJSON);
+ loadFile(nowPlaying, loadJSON);
  
 
     var votes = calcVotes();
@@ -253,7 +229,7 @@ function showDivs(n) {
   slideIndex = n;
   var x = document.getElementsByClassName("myPoster");
   var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}    
+  if (n > 10) {slideIndex = 1}    
   //console.log("(n > x.length) - " + slideIndex);
   if (n < 1) {slideIndex = x.length}
   //console.log("(n < 1) - " + slideIndex);
@@ -263,6 +239,7 @@ function showDivs(n) {
   for (i = 0; i < dots.length; i++) {
      dots[i].className = dots[i].className.replace(" white", "");
   }
+  //console.log("slideIndex: " + slideIndex);
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " white";
   //setTimeout(plusDivs, 5000, 1); // Change image every 3 seconds
@@ -274,24 +251,3 @@ function slideShow(n) {
     plusDivs(myIndex);
     setTimeout(slideShow, 3000, myIndex); // Change image every 2 seconds
 }
-
-// function slideShow(n) {
-//     var i;
-//     myIndex = n;
-//     console.log("myIndex: " + myIndex);
-//     var x = document.getElementsByClassName("myPoster");
-//     var dots = document.getElementsByClassName("demo");
-//     console.log(x);
-//     for (i = 0; i < x.length; i++) {
-//        x[i].style.display = "none";  
-//     }
-//     for (i = 0; i < dots.length; i++) {
-//         dots[i].className = dots[i].className.replace(" white", "");
-//      }
-//     myIndex++;
-//     console.log("myIndex++ " + myIndex);
-//     if (myIndex > x.length) {myIndex = 1}    
-//     x[myIndex-1].style.display = "block";  
-//     dots[myIndex-1].className += " white";
-//     setTimeout(slideShow, 3000, myIndex); // Change image every 2 seconds
-// }
