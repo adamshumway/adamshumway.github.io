@@ -180,9 +180,9 @@ function runSearch(search) {
     var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
 
     console.log(search);
-    if(search === nowPlaying) {loadFile(nowPlaying, loadJSON);};
-    if(search === getPopular) {loadFile(getPopular, loadJSON);};
-    if(search === topRated) {loadFile(topRated, loadJSON);};
+    if(search === "nowPlaying") {loadFile(nowPlaying, loadJSON);};
+    if(search === "getPopular") {loadFile(getPopular, loadJSON);};
+    if(search === "topRated") {loadFile(topRated, loadJSON);};
     if(search === "getUpcoming") {loadFile(getUpcoming, loadJSON);}
 
     var votes = calcVotes();
