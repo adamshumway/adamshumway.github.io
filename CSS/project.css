@@ -6,6 +6,10 @@ body {
   color: #282828;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* poster section */
 .poster-container {
   position: relative;
@@ -18,9 +22,35 @@ body {
   display: none;
 }
 
+button {
+  border: none;
+	background: #3a7999;
+	color: #f2f2f2;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}
+
+button:hover {
+  background: rgba(0,0,0,0);
+	color: #3a7999;
+	box-shadow: inset 0 0 0 3px #3a7999;
+}
+
 .selector-container {
   padding: 0.01em 16px;
   width: 92%;
+}
+
+.display-middle {
+  position: relative;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%)
 }
 
 .display-bottommiddle {
@@ -85,12 +115,15 @@ body {
     background-color: #fff !important
 }
 
-/* skills/chart sectioin */
+/* skills/chart section */
 .skills {
   width: 80%;
   max-width: 960px;
-  height: 550px;
-  margin: auto;
+  height: 785px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
   position: relative;
 }
 
@@ -147,7 +180,7 @@ body {
   margin: 30px 0 0;
 }
 .chart:first-child {
-  margin: 0;
+  margin-left: 10px;
 }
 
 .chart__title {
@@ -168,6 +201,16 @@ body {
   overflow: hidden;
 }
 
+.chart__label {
+  /* padding-left: 10px; */
+  line-height: 30px;
+  width: 200px;
+  margin-left: 0;
+  color: black;
+  opacity: 0;
+  animation: 1s anim-lightspeed-in ease forwards;
+}
+
 .chart__bar {
   height: 30px;
   margin-bottom: 10px;
@@ -177,6 +220,7 @@ body {
   opacity: 0;
   animation: 1s anim-lightspeed-in ease forwards;
 }
+
 .chart--dev .chart__bar:nth-of-type(11) {
   animation-delay: 2.7s;
 }
@@ -226,13 +270,55 @@ body {
   animation-delay: 5.2s;
 }
 
-.chart__label {
-  padding-left: 10px;
-  line-height: 30px;
-  width: 200px;
-  margin-left: 0;
-  color: white;
+.chart--dev .chart__label:nth-of-type(11) {
+  animation-delay: 2.7s;
 }
+.chart--dev .chart__label:nth-of-type(10) {
+  animation-delay: 2.5s;
+}
+.chart--dev .chart__label:nth-of-type(9) {
+  animation-delay: 2.3s;
+}
+.chart--dev .chart__label:nth-of-type(8) {
+  animation-delay: 2.1s;
+}
+.chart--dev .chart__label:nth-of-type(7) {
+  animation-delay: 1.9s;
+}
+.chart__label:nth-of-type(6) {
+  animation-delay: 1.7s;
+}
+.chart--dev .chart__label:nth-of-type(5) {
+  animation-delay: 1.5s;
+}
+.chart--dev .chart__label:nth-of-type(4) {
+  animation-delay: 1.3s;
+}
+.chart--dev .chart__label:nth-of-type(3) {
+  animation-delay: 1.1s;
+}
+.chart--dev .chart__label:nth-of-type(2) {
+  animation-delay: 0.9s;
+}
+.chart--dev .chart__label:nth-of-type(1) {
+  animation-delay: 0.7s;
+}
+.chart--prod .chart__label:nth-of-type(2) {
+  animation-delay: 4.2s;
+}
+.chart--prod .chart__label:nth-of-type(1) {
+  animation-delay: 4s;
+}
+.chart--design .chart__label:nth-of-type(3) {
+  animation-delay: 5.6s;
+}
+.chart--design .chart__label:nth-of-type(2) {
+  animation-delay: 5.4s;
+}
+.chart--design .chart__label:nth-of-type(1) {
+  animation-delay: 5.2s;
+}
+
 
 @keyframes anim-lightspeed-in {
   0% {

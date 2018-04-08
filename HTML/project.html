@@ -17,6 +17,12 @@
             <div id="json"></div>
         </pre>
     </div>
+    <div class="controls center display-middle">
+        <button type="button" onclick="runSearch('nowPlaying')">Now Playing</button>
+        <button type="button" onclick="runSearch('getPopluar')">Popular</button>
+        <button type="button" onclick="runSearch('topRated')">Top Rated</button>
+        <button type="button" onclick="runSearch('getUpcoming')">Coming Soon</button>
+    </div>
     <div class="poster-container" id="posters">
         <!-- <image class="myPoster" src="http://image.tmdb.org/t/p/w500/fchHLsLjFvzAFSQykiMwdF1051.jpg" width="100%"/>
         <image class="myPoster" src="http://image.tmdb.org/t/p/w500/k4FwHlMhuRR5BISY2Gm2QZHlH5Q.jpg" width="100%"/>
@@ -33,34 +39,34 @@
             <ul class="lines">
               <li class="line l--0">
                 <span class="line__label title">
-                  Skill level:
+                  Percent Votes:
                 </span>
               </li>
               <li class="line l--25">
                 <span class="line__label">
-                  The basics
+                  25%
                 </span>
               </li>
               <li class="line l--50">
                 <span class="line__label">
-                  Advanced
+                  50%
                 </span>
               </li>
               <li class="line l--75">
                 <span class="line__label">
-                  Seasoned
+                  75%
                 </span>
               </li>
               <li class="line l--100">
                 <span class="line__label">
-                  Expert
+                  100%
                 </span>
               </li>
             </ul>
             
             <div class="charts">
               <div class="chart chart--dev">
-                <span class="chart__title">Development</span>
+                <span class="chart__title">Movie Rankings</span>
                 <ul class="chart--horiz">
                   <!-- <li class="chart__bar" style="width: 98%;"> -->
                     <!-- <span class="chart__label">

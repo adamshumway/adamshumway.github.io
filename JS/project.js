@@ -91,6 +91,54 @@ function showPoster() {
     var img;
     var span;
 
+    var poster = document.getElementsByClassName("myPoster");
+    var container = document.getElementById("posters");
+    var selector = document.getElementsByClassName("selector-container")[0];
+
+    // document.body.removeChild(container);
+
+    // container = document.createElement("div");
+    // container.id = "posters";
+    // container.className = "poster-container";
+
+    // document.body.childNodes[4].appendChild(container);
+    container.removeChild(selector);
+    // console.log("poster: " + JSON.stringify(poster));
+    // console.log("poster object: " + poster);
+    // console.log("poster length: " + poster.length);
+    
+    for(i = 0; i < poster.length; i++) {
+        if(typeof poster[i] !== "undefined") {
+            poster[i].parentElement.removeChild(poster[i]);
+            console.log("deleting node: " + JSON.stringify(poster[i]));
+        }
+        else {
+            console.log("in else for removing poster");
+        }
+        // if(poster.hasChildNodes()) {
+        //     poster.removeChild(poster.childNodes[i]);
+        }
+    
+
+    
+    selector = document.createElement("div");
+    selector.className = "selector-container text-white center large display-bottommiddle";
+
+    var selLeft = document.createElement("div");
+    var selRight = document.createElement("div");
+
+    selLeft.className = "selLeft hover-text-khaki";
+    selLeft.setAttribute("onclick","plusDivs(-1)");
+    selLeft.innerHTML = "&#10094;";
+
+    selRight.className = "selRight hover-text-khaki";
+    selRight.setAttribute("onclick","plusDivs(1)");
+    selRight.innerHTML = "&#10095;";
+
+    selector.appendChild(selLeft);
+    selector.appendChild(selRight);
+    container.appendChild(selector);
+
     for (i = 0; i < 10; i++) {
         var imgSRC = list[i].poster;
         img = document.createElement('img');
@@ -99,7 +147,7 @@ function showPoster() {
         img.setAttribute("width", "100%");
         img.setAttribute("height", "100%");
         document.getElementById("posters").appendChild(img);
-        //console.log(document.getElementById("posters"));
+        console.log(document.getElementById("posters"));
 
         span = document.createElement("span");
         span.className = "badge demo border transparent hover-white";
@@ -107,6 +155,8 @@ function showPoster() {
         document.getElementsByClassName("selector-container")[0].appendChild(span);
 
     }
+
+    
 }
 function buildChart(votes) {
     var list = JSON.parse(localStorage.movies);
@@ -114,22 +164,59 @@ function buildChart(votes) {
     //I only want to show 10
     for (i = 0; i < 10; i++) {
         var votePercent = (list[i].votes / votes) * 100;
+        var bar = document.getElementsByClassName("chart--horiz")[0];
         //console.log(votePercent);
         //console.log(list[i].title + " " + list[i].votes);
+
+        var words = document.createElement("span");
+        words.innerHTML = list[i].title;
+        words.className = "chart__label";
+        bar.appendChild(words);
     
-        var bar = document.getElementsByClassName("chart--horiz")[0];
         var newLi = document.createElement("li");
         newLi.className = "chart__bar";
         newLi.style.width = Math.round(votePercent).toString() +"%";
     
-        var newSpan = document.createElement("span");
-        newSpan.className = "chart__label";
-        newSpan.innerHTML = list[i].title;
-        newLi.appendChild(newSpan);
+        // var newSpan = document.createElement("span");
+        // newSpan.className = "chart__label";
+        // newSpan.innerHTML = list[i].title;
+        // newLi.appendChild(newSpan);
         bar.appendChild(newLi);
     }
 }
 
+function dropChart() {
+    var bar = document.getElementsByClassName("chart--horiz")[0];
+    var chart = document.getElementsByClassName("chart--dev")[0];
+
+    chart.removeChild(bar);
+
+    bar = document.createElement("ul");
+    bar.className = "chart--horiz";
+
+    chart.appendChild(bar);
+}
+
+function runSearch(search) {
+    var nowPlaying = "https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
+    var getPopular = "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
+    var topRated = "https://api.themoviedb.org/3/movie/top_rated?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
+    var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
+
+    console.log(search);
+    if(search === nowPlaying) {loadFile(nowPlaying, loadJSON)};
+    if(search === getPopular) {loadFile(getPopular, loadJSON)};
+    if(search === topRated) {loadFile(topRated, loadJSON)};
+    if(search === getUpcoming) {loadFile(getUpcoming, loadJSON)};
+
+    var votes = calcVotes();
+    dropChart();
+    buildChart(votes);
+    showPoster();
+
+    showDivs(slideIndex = 1);
+
+}
 
 function testRun() {
     //console.log("Am now in the testRun function");
@@ -138,7 +225,8 @@ function testRun() {
     var topRated = "https://api.themoviedb.org/3/movie/top_rated?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
     var getUpcoming = "https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f3440b43f00ffcf48f98630447fa13d9";
 
-    loadFile(getUpcoming, loadJSON);
+ loadFile(getUpcoming, loadJSON);
+ 
 
     var votes = calcVotes();
     //console.log(votes);
@@ -148,7 +236,7 @@ function testRun() {
 
     slideIndex = 1;
     showDivs(slideIndex);
-    //slideShow(0);
+    slideShow(1);
 }
 
 function plusDivs(n) {
@@ -177,27 +265,33 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " white";
-  setTimeout(plusDivs, 5000, 1); // Change image every 3 seconds
+  //setTimeout(plusDivs, 5000, 1); // Change image every 3 seconds
 
 }
 
 function slideShow(n) {
-    var i;
     myIndex = n;
-    console.log("myIndex: " + myIndex);
-    var x = document.getElementsByClassName("myPoster");
-    var dots = document.getElementsByClassName("demo");
-    console.log(x);
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" white", "");
-     }
-    myIndex++;
-    console.log("myIndex++ " + myIndex);
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    dots[myIndex-1].className += " white";
+    plusDivs(myIndex);
     setTimeout(slideShow, 3000, myIndex); // Change image every 2 seconds
 }
+
+// function slideShow(n) {
+//     var i;
+//     myIndex = n;
+//     console.log("myIndex: " + myIndex);
+//     var x = document.getElementsByClassName("myPoster");
+//     var dots = document.getElementsByClassName("demo");
+//     console.log(x);
+//     for (i = 0; i < x.length; i++) {
+//        x[i].style.display = "none";  
+//     }
+//     for (i = 0; i < dots.length; i++) {
+//         dots[i].className = dots[i].className.replace(" white", "");
+//      }
+//     myIndex++;
+//     console.log("myIndex++ " + myIndex);
+//     if (myIndex > x.length) {myIndex = 1}    
+//     x[myIndex-1].style.display = "block";  
+//     dots[myIndex-1].className += " white";
+//     setTimeout(slideShow, 3000, myIndex); // Change image every 2 seconds
+// }
